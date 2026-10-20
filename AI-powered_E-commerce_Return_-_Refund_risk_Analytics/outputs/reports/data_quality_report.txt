@@ -1,0 +1,104 @@
+======================================================================
+  DATA QUALITY REPORT -- E-Commerce Returns Dataset
+======================================================================
+
+? Shape            : 10,000 rows x 17 columns
+? Duplicate rows   : 0
+
+-- Column Data Types --
+  Order_ID                  str
+  Product_ID                str
+  User_ID                   str
+  Order_Date                str
+  Return_Date               str
+  Product_Category          str
+  Product_Price             float64
+  Order_Quantity            int64
+  Return_Reason             str
+  Return_Status             str
+  Days_to_Return            float64
+  User_Age                  int64
+  User_Gender               str
+  User_Location             str
+  Payment_Method            str
+  Shipping_Method           str
+  Discount_Applied          float64
+
+-- Missing Values --
+  Return_Date                4,948  (49.5%)
+  Return_Reason              4,948  (49.5%)
+  Days_to_Return             4,948  (49.5%)
+
+-- Unique Values Per Column --
+  Order_ID                  10,000
+  Product_ID                10,000
+  User_ID                   10,000
+  Order_Date                   731
+  Return_Date                  729
+  Product_Category               5
+  Product_Price              9,074
+  Order_Quantity                 5
+  Return_Reason                  4
+  Return_Status                  2
+  Days_to_Return             1,249
+  User_Age                      53
+  User_Gender                    2
+  User_Location                100
+  Payment_Method                 4
+  Shipping_Method                3
+  Discount_Applied           4,317
+
+-- Categorical Value Counts --
+
+  [Return_Status]
+    Returned                        5,052
+    Not Returned                    4,948
+
+  [Product_Category]
+    Books                           2,041
+    Home                            2,030
+    Clothing                        2,000
+    Electronics                     1,985
+    Toys                            1,944
+
+  [Payment_Method]
+    Gift Card                       2,537
+    Debit Card                      2,510
+    PayPal                          2,480
+    Credit Card                     2,473
+
+  [Shipping_Method]
+    Next-Day                        3,394
+    Express                         3,306
+    Standard                        3,300
+
+  [Return_Reason]
+    nan                             4,948
+    Defective                       1,327
+    Wrong item                      1,258
+    Changed mind                    1,255
+    Not as described                1,212
+
+  [User_Gender]
+    Female                          5,052
+    Male                            4,948
+
+-- Outlier Detection (IQR Method) --
+  Product_Price             outliers=    0  fence=[-245.13, 751.62]
+  Order_Quantity            outliers=    0  fence=[-1.0, 7.0]
+  Days_to_Return            outliers=    0  fence=[-862.0, 866.0]
+  User_Age                  outliers=    0  fence=[-8.0, 96.0]
+  Discount_Applied          outliers=    0  fence=[-24.53, 74.88]
+
+-- Numeric Summary --
+       Product_Price  Order_Quantity  Days_to_Return  User_Age  Discount_Applied
+count       10000.00        10000.00         5052.00  10000.00          10000.00
+mean          252.37            3.01            1.45     44.20             24.99
+std           142.88            1.41          297.98     15.31             14.36
+min             5.01            1.00         -719.00     18.00              0.00
+25%           128.65            2.00         -214.00     31.00             12.75
+50%           250.44            3.00            1.00     44.00             24.84
+75%           377.84            4.00          218.00     57.00             37.61
+max           499.89            5.00          726.00     70.00             50.00
+
+======================================================================

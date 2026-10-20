@@ -1,0 +1,12 @@
+MODEL COMPARISON REPORT
+======================================================================
+                     Accuracy  Precision  Recall  F1 Score  ROC-AUC
+Model                                                              
+K-Nearest Neighbors     50.85      51.33   51.49     51.41    50.23
+Logistic Regression     50.85      51.17   58.32     54.51    49.95
+Decision Tree           49.85      50.36   48.61     49.47    49.86
+Random Forest           49.95      50.45   50.20     50.32    49.74
+AdaBoost                50.75      50.96   65.84     57.45    49.54
+Naive Bayes             49.80      50.26   56.44     53.17    49.23
+Gradient Boosting       49.65      50.13   55.84     52.83    48.99
+SVM                     48.40      48.99   53.07     50.95    48.01

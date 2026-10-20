@@ -1,0 +1,91 @@
+======================================================================
+  DESCRIPTIVE ANALYTICS REPORT -- E-Commerce Returns
+======================================================================
+
+-- Overall KPIs --
+  Total Orders                              10,000
+  Total Returned                             5,052
+  Return Rate (%)                            50.52
+  Total Gross Revenue ($)             7,626,183.56
+  Total Net Revenue ($)               5,713,232.49
+  Revenue At Risk ($)                 2,871,592.10
+  Avg Order Value ($)                       571.32
+  Avg Discount (%)                           24.99
+
+-- Return Rate by Product Category --
+                  Orders  Returns  Gross_Revenue  Net_Revenue  Avg_Price  Return_Rate
+Product_Category                                                                     
+Clothing            2000     1049     1524592.80   1148111.10     254.73        52.45
+Electronics         1985     1011     1501047.33   1121839.75     252.22        50.93
+Books               2041     1034     1533423.95   1146070.16     249.68        50.66
+Toys                1944      963     1503263.66   1124500.80     255.56        49.54
+Home                2030      995     1563855.82   1172710.68     249.84        49.01
+
+-- Return Rate by Payment Method --
+                Orders  Returns  Return_Rate
+Payment_Method                              
+Gift Card         2537     1309        51.60
+Debit Card        2510     1283        51.12
+Credit Card       2473     1249        50.51
+PayPal            2480     1211        48.83
+
+-- Return Rate by Shipping Method --
+                 Orders  Returns  Return_Rate
+Shipping_Method                              
+Next-Day           3394     1734        51.09
+Standard           3300     1667        50.52
+Express            3306     1651        49.94
+
+-- Return Rate by Gender --
+             Orders  Returns  Return_Rate
+User_Gender                              
+Female         5052     2555        50.57
+Male           4948     2497        50.46
+
+-- Return Reasons (Returned Orders Only) --
+   Return_Reason  Count
+       Defective   1327
+      Wrong item   1258
+    Changed mind   1255
+Not as described   1212
+
+-- Return Rate by Age Group --
+           Orders  Returns  Return_Rate
+Age_Group                              
+18-25        1502      765        50.93
+26-35        1835      943        51.39
+36-45        1876      948        50.53
+46-55        1913      917        47.94
+55+          2874     1479        51.46
+
+-- Top 10 High-Risk Locations --
+               Orders  Returns  Return_Rate
+User_Location                              
+City68             95       59        62.11
+City71            102       63        61.76
+City87             90       55        61.11
+City10            102       61        59.80
+City19             97       57        58.76
+City39            104       61        58.65
+City15            109       63        57.80
+City74             96       55        57.29
+City7             100       57        57.00
+City44            103       58        56.31
+
+-- Monthly Trend (last 12 months shown) --
+                        Orders  Returns  Net_Revenue  Return_Rate
+Order_Year Order_Month                                           
+2024       1               430      215    256220.57        50.00
+           2               443      212    263694.25        47.86
+           3               442      215    249177.97        48.64
+           4               406      210    240049.51        51.72
+           5               422      206    241848.40        48.82
+           6               399      188    228736.54        47.12
+           7               427      220    248197.81        51.52
+           8               404      222    231152.68        54.95
+           9               431      231    242224.58        53.60
+           10              407      196    229681.79        48.16
+           11              360      173    208358.61        48.06
+           12              420      208    236796.64        49.52
+
+======================================================================
