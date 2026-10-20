@@ -6,15 +6,31 @@ AI-Powered E-Commerce Return & Refund Risk Analytics
 import pandas as pd
 import numpy as np
 import os
+from pathlib import Path
 
-DATA_PATH = "ecommerce_returns_synthetic_data.csv"
-REPORT_PATH = "outputs/reports/data_quality_report.txt"
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+DATA_PATH = BASE_DIR / "ecommerce_returns_synthetic_data.csv"
+REPORT_PATH = BASE_DIR / "outputs" / "reports" / "data_quality_report.txt"
 
 
-def load_data(path: str = DATA_PATH) -> pd.DataFrame:
+def load_data(path=DATA_PATH) -> pd.DataFrame:
     """Load the dataset from CSV."""
+    path = Path(path)
+
+    if not path.is_absolute():
+        path = BASE_DIR / path
+
+    if not path.exists():
+        raise FileNotFoundError(
+            f"Dataset not found: {path}"
+        )
+
     df = pd.read_csv(path)
-    print(f"[LOAD] Dataset loaded: {df.shape[0]:,} rows x {df.shape[1]} columns")
+    print(
+        f"[LOAD] Dataset loaded: "
+        f"{df.shape[0]:,} rows x {df.shape[1]} columns"
+    )
     return df
 
 
