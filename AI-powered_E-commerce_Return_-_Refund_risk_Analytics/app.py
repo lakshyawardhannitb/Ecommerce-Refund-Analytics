@@ -102,32 +102,27 @@ def load_all_data():
 
 @st.cache_resource(show_spinner="Loading model…")
 def load_model():
-    model_dir = "outputs/models"
-    if not os.path.isdir(model_dir):
+    model_dir = BASE_DIR / "outputs" / "models"
+    if not model_dir.is_dir():
         raise FileNotFoundError(f"No model directory at {model_dir}")
     files = [f for f in os.listdir(model_dir) if f.endswith(".pkl")]
     if not files:
         raise FileNotFoundError(
-            "No trained .pkl model found. Run `python src/s05_ml_pipeline.py` to train one."
+            "No trained .pkl model found. Run `python main.py` to train one."
         )
     preferred = [f for f in files if "tuned" in f or "random_forest" in f]
     model_file = (preferred or files)[0]
-    model = joblib.load(os.path.join(model_dir, model_file))
-    with open(os.path.join(model_dir, "feature_names.txt")) as fh:
+    model = joblib.load(model_dir / model_file)
+    with open(model_dir / "feature_names.txt") as fh:
         feature_names = [l.strip() for l in fh if l.strip()]
     return model, feature_names, model_file
 
 
-def plot_exists(name):
-    return os.path.exists(os.path.join("outputs", "plots", name))
 def show_plot(name, caption=""):
-    path = os.path.join("outputs", "plots", name)
-    if os.path.exists(path):
-        try:
-            st.image(path, caption=caption or None, width="stretch")
-        except Exception:
-            st.image(path, caption=caption or None, use_container_width=True)
-    else:      
+    path = BASE_DIR / "outputs" / "plots" / name
+    if path.exists():
+        st.image(str(path), caption=caption or None, use_container_width=True)
+    else:
         st.info(f"Plot not found: {name}. Run `python main.py` to generate it.")
 
 # ═══════════════════════════════════════════════════════════════════
