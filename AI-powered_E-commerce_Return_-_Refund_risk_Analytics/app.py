@@ -20,6 +20,10 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
 import seaborn as sns
 import joblib
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+
 
 # ── Page config ────────────────────────────────────────────────────
 st.set_page_config(
@@ -87,7 +91,7 @@ def load_all_data():
     from src.s02_data_cleaning_and_analytics import clean_data, calculate_sales, descriptive_analytics
     from src.s04_feature_engineering import engineer_features
 
-    df_raw   = load_data("ecommerce_returns_synthetic_data.csv")
+    df_raw = load_data(str(BASE_DIR / "ecommerce_returns_synthetic_data.csv"))
     quality  = data_quality_check(df_raw)
     df_clean = clean_data(df_raw)
     df_sales = calculate_sales(df_clean)
